@@ -1,0 +1,4 @@
+log/*
+.rvmrc
+tmp/*
+public/uploads/*

@@ -1,0 +1,38 @@
+<div class="detailBox">
+  <div class="titleBox">
+    <label>Comment Box</label>
+      <button type="button" class="close" aria-hidden="true">&times;</button>
+  </div>
+  <div class="commentBox">
+    <p class="taskDescription">Comments on <%= @article.title %></p>
+  </div>
+  <div class="actionBox">
+    <ul class="commentList">
+      <% @comments.each do |comment| %>
+
+        <li>
+            <div class="commenterImage">
+              <%= image_tag(comment.user.profile.avatar_url) if comment.user.profile.avatar? %>
+            </div>
+            <div class="commentText">
+                <p class=""><%= comment.body %></p> <span class="date sub-text">on <%= comment.updated_at %></span>
+            </div>
+        </li>
+      <% end %>  
+       
+    </ul>
+    
+    <%= form_for([@article, @article.comments.build]) do |f| %>
+      <div class="form-group">
+        <%= f.text_field :body, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: 'form-control' }  %>
+      </div>
+
+       <div class="form-group">
+           <%= f.hidden_field :user_id, value: current_user.id %>
+       </div>
+      <div class="form-group">
+          <%= f.submit "Comment", class: "btn btn-info" %>
+      </div>
+    <% end %>
+  </div>
+</div>

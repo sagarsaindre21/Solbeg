@@ -1,0 +1,54 @@
+<%= form_for([article]) do |f| %>
+  <div class="box-body">
+    <%= f.hidden_field :id,id: 'blog-id'  %>
+    <% if article.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+        <ul>
+          <% article.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <div class="field">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="field">
+        <%= f.label :slug %>
+        <%= f.text_field :slug, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="field">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="field">
+        <%= f.label :content %>
+        <%= f.text_area :content, class: 'form-control visa-article', rows: 10 %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+         <%= select_tag 'users_access_ids[]', options_for_select( users_list, article.user_access_articles.pluck(:user_id)), multiple: true, size: 10 %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit 'Submit', class: 'btn btn-info' %>
+    </div>
+  </div>
+<% end %>

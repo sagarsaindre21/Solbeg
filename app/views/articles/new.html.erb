@@ -1,0 +1,14 @@
+<div class="row">
+  <!-- left column -->
+  <div class="col-md-12">
+    <!-- general form elements -->
+    <div class="box box-success record_detail_box">
+      <div class="box-header with-border">
+        <h3>New Article</h3>
+        <%= link_to 'Back', articles_path %>
+      </div>
+
+      <%= render 'form', article: @article %>
+    </div>
+  </div>
+</div>

@@ -13,6 +13,10 @@
     <li class="nav-item">
       <%= link_to 'Users', users_path, class: "nav-link" if current_user.admin? %>
     </li>
+
+    <li class="nav-item">
+      <%= link_to 'Articles', articles_path, class: "nav-link" %>
+    </li>
     <!-- END post login block -->
   <% else %>
     <!-- START pre login block -->

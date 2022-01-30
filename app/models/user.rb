@@ -5,6 +5,7 @@ class User < ApplicationRecord
 	enum role: { regular: 0, admin: 1}
 	# :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   	devise :database_authenticatable, :registerable, :validatable # , :recoverable, :rememberable
+  	has_many :articles
 
 	## association macros
 	has_one :profile, dependent: :destroy

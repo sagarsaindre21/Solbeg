@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 	  resources :profiles, only: [:show, :edit, :update]
 	end
 
+	resources :articles do
+	  resources :comments
+	end
+
 	# no routes and more
 	match "*path", "/", to: "restricts#routes_not_exists", via: :all
 end

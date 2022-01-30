@@ -13,3 +13,4 @@ This sipl-test is developed using ```Ruby v2.7.2, Rails v6.0.3.4, PostgreSQL v12
 
 Run `rails s` for a dev server. Open `http://localhost:3000` in any browser.
 
+# solbegAssesement
